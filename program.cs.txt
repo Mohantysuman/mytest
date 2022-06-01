@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using ClassLibrary1;
+
+namespace ClassLibrary
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Customer customerobj = new Customer();
+            customerobj.InputDatainList();
+        TOP:
+            Console.WriteLine("Press1 for CustomerDetails. ShowCustomerDetails");
+            Console.WriteLine("Press2 for ShowEBill. ShowEBill");
+            Console.WriteLine("Press 3 for ShowEBillReport. ShowEBillReport For all customers");
+            int input = Convert.ToInt32(Console.ReadLine());
+            switch (input)
+            {
+                case 1:
+                    Console.Write("Enter Customer Id - ");
+                    customerobj.ShowCustomerDetails(Convert.ToInt32(Console.ReadLine()));
+                    break;
+                case 2:
+                    Console.WriteLine("Enter Customer Id - ");
+                    customerobj.ShowEBill(Convert.ToInt32(Console.ReadLine()));
+                    break;
+                case 3:
+                    customerobj.ShowEBillReport();
+                    break;
+                default:
+                    Console.WriteLine("Please choose correct option");
+                    goto TOP;
+            }
+        }
+    }
+}
